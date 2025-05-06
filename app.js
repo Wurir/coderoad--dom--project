@@ -40,6 +40,7 @@ function move(deltaX = 0, deltaY = 0){
     const currentTop = extractPixelsFromString(circle.style.top)
     circle.style.top = currentTop + deltaY + 'px'
     circle.style.left = currentLeft + deltaX + 'px'
+    displayPosition()
 }
 
 function moveDown(deltaTop = 10){
@@ -59,6 +60,7 @@ function moveLeft(deltaLeft = 10){
 }
 
 function displayPosition(){
+    container.innerHTML = ''
     const position = circle.getBoundingClientRect()
 
     const pX = document.createElement('p')

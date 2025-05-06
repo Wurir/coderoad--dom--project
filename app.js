@@ -17,24 +17,27 @@ function createCircle(selectorContainer){
     return circle
 }
 
-function moveDown(deltaTop = 10){
+function move(deltaX = 0, deltaY = 0){
+    const currentLeft = Number(circle.style.left.replace('px', ''))
     const currentTop = Number(circle.style.top.replace('px', ''))
-    circle.style.top = currentTop + deltaTop + 'px'
+    circle.style.top = currentTop + deltaY + 'px'
+    circle.style.left = currentLeft + deltaX + 'px'
+}
+
+function moveDown(deltaTop = 10){
+    move(0, deltaTop)
 }
 
 function moveRight(deltaLeft = 10){
-    const currentLeft = Number(circle.style.left.replace('px', ''))
-    circle.style.left = currentLeft + deltaLeft + 'px'
+    move(deltaLeft, 0)
 }
 
 function moveUp(deltaUp = 10){
-    const currentTop = Number(circle.style.top.replace('px', ''))
-    circle.style.top = currentTop - deltaUp + 'px'
+    move(0, -deltaUp)
 }
 
 function moveLeft(deltaLeft = 10){
-    const currentLeft = Number(circle.style.left.replace('px', ''))
-    circle.style.left = currentLeft - deltaLeft + 'px'
+    move(-deltaLeft, 0)
 }
 
 const circle = createCircle('body')

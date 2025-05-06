@@ -17,9 +17,13 @@ function createCircle(selectorContainer){
     return circle
 }
 
+function extractPixelsFromString(pixelsString){
+    return Number(pixelsString.replace('px', ''))
+}
+
 function move(deltaX = 0, deltaY = 0){
-    const currentLeft = Number(circle.style.left.replace('px', ''))
-    const currentTop = Number(circle.style.top.replace('px', ''))
+    const currentLeft = extractPixelsFromString(circle.style.left)
+    const currentTop = extractPixelsFromString(circle.style.top)
     circle.style.top = currentTop + deltaY + 'px'
     circle.style.left = currentLeft + deltaX + 'px'
 }

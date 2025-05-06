@@ -27,5 +27,15 @@ function moveRight(deltaLeft = 10){
     circle.style.left = currentLeft + deltaLeft + 'px'
 }
 
+function moveUp(deltaUp = 10){
+    const currentTop = Number(circle.style.top.replace('px', ''))
+    circle.style.top = currentTop - deltaUp + 'px'
+}
+
+function moveLeft(deltaLeft = 10){
+    const currentLeft = Number(circle.style.left.replace('px', ''))
+    circle.style.left = currentLeft - deltaLeft + 'px'
+}
+
 const circle = createCircle('body')
 

@@ -64,10 +64,10 @@ function displayPosition(){
     const position = circle.getBoundingClientRect()
 
     const pX = document.createElement('p')
-    pX.innerText = 'Position X: ' + position.x
+    pX.innerText = 'Position X: ' + (position.x + position.width / 2)
 
     const pY = document.createElement('p')
-    pY.innerText = 'Position Y: ' + position.y
+    pY.innerText = 'Position Y: ' + (position.y + position.height / 2)
 
     container.appendChild(pX)
     container.appendChild(pY)

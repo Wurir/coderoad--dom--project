@@ -1,3 +1,17 @@
+function createPositionContainer(selectorContainer){
+    const container = document.querySelector(selectorContainer)
+    if(!container) return 
+    
+    const div = document.createElement('div')
+    div.style.position = 'absolute'
+    div.style.bottom = '0px'
+    div.style.right = '0px'
+
+    container.appendChild(div)
+
+    return div
+}
+
 function createCircle(selectorContainer){
     const container = document.querySelector(selectorContainer)
     if(!container) return 
@@ -44,5 +58,19 @@ function moveLeft(deltaLeft = 10){
     move(-deltaLeft, 0)
 }
 
-const circle = createCircle('body')
+function displayPosition(){
+    const position = circle.getBoundingClientRect()
 
+    const pX = document.createElement('p')
+    pX.innerText = 'Position X: ' + position.x
+
+    const pY = document.createElement('p')
+    pY.innerText = 'Position Y: ' + position.y
+
+    container.appendChild(pX)
+    container.appendChild(pY)
+}
+
+const container = createPositionContainer('body')
+const circle = createCircle('body')
+displayPosition()
